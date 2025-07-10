@@ -51,10 +51,6 @@ Coming soon: full documentation, setup instructions, and deployment scripts!
 
 If you’d like to add new challenges, improve existing ones, or contribute ideas — pull requests are welcome! Let’s build something epic together.
 
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ---
 
 > Developed with love & curiosity  
