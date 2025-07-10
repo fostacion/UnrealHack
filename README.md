@@ -53,5 +53,5 @@ If you’d like to add new challenges, improve existing ones, or contribute idea
 
 ---
 
-> Developed with love & curiosity  
+> Developed with LOV3 & P45510N  
 > by Unreal 😈
