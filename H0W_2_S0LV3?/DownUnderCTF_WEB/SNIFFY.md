@@ -12,7 +12,7 @@ docker run -p 5001:80 sniffy
 A simple PHP-based web service that allows users to play audio clips of kookaburras.
 The main functionality revolves around rendering different UI themes and streaming audio files based on user interaction.
 
-⸻
+---
 
 🧠 Background Knowledge
 
@@ -35,7 +35,7 @@ sess_<session_id>
  
  •	MIME Type Reference
 
-⸻
+---
 
 🧩 Code Analysis
 
@@ -68,7 +68,7 @@ readfile($file);
 	•	Only files under audio/ are allowed
 	•	MIME type must start with audio, otherwise access is denied
 
-⸻
+---
 
 🌈 index.php
 ```php
@@ -139,7 +139,7 @@ foreach(scandir('audio/') as $v) {
 	•	The flag is stored only in the session
 	•	The session file will be created when visiting index.php, but only for the initiating client
  
-⸻
+---
 
 🧨 Exploitation Strategy
 
@@ -150,7 +150,7 @@ foreach(scandir('audio/') as $v) {
 	4.	But mime_content_type() uses magic bytes, so certain non-audio files can masquerade as audio if their header matches a known audio signature.
 	5.	If we manage to craft a valid request to audio.php?f=../../../../tmp/sess_<victim_session_id>, and the session file appears as an audio file, the server will stream its content.
 
-⸻
+---
 
 🛠️ Exploitation Steps
 
@@ -161,7 +161,7 @@ However, this flag is not stored in your session — it’s only in the server�
 
 💡 The target session ID is the one that holds $_SESSION['flag'].
 
-⸻
+---
 
 2. 🎭 Find MIME Spoofable Headers
 
@@ -178,7 +178,7 @@ Examples:
 ```
 Session files starting with one of these might bypass the MIME check.
 
-⸻
+---
 
 3. 🗂️ Locate the Session File
 
@@ -200,7 +200,7 @@ To prevent this type of attack:
 	•	Never trust mime_content_type() alone — validate both MIME and extension
 	•	Consider using a whitelist of allowed filenames rather than allowing user-controlled paths
 
-⸻
+---
 
 📎 Summary
 
