@@ -2,7 +2,7 @@
 
 Welcome to **H0W 2 S0LV3?** — a space dedicated to documenting interesting and creative **vulnerability exploitation techniques** discovered while solving CTFs and wargames.
 
-This repository serves as a personal knowledge base, collecting technical insights and clever attack strategies **without disclosing actual flags or final exploits**.  
+This repository serves as a personal knowledge base, collecting technical insights and clever attack strategies **without disclosing actual flags**.  
 Some of the techniques here may also be applicable to real-world security scenarios.
 
 ---
