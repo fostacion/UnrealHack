@@ -1,4 +1,4 @@
-# 🕵️‍♂️ sniffy — Exploiting Audio-Based Session Leakage (CTF Write-up)
+# 🕵️‍♂️ sniffy
 
 ## 🧪 Challenge Environment
 
