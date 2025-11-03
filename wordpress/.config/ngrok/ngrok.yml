@@ -1,0 +1,15 @@
+version: "3"
+authtoken: 2ri6RqA2sCcz49JnkkBtIhhfisg_2p7dcHK26UQrGDF3THLXA
+console_ui: true
+
+tunnels:
+  api:
+    proto: http
+    addr: 8000
+    schemes: [https]
+    region: ap
+  web:
+    proto: http
+    addr: 5173
+    schemes: [https]
+    region: ap

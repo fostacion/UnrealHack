@@ -1,0 +1,54 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE/Editor
+.idea/
+.vscode/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.python-version
+
+# Backend (FastAPI)
+backend/.env
+backend/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/*.sqlite
+backend/wpapi.sqlite
+backend/store/
+!backend/store/.gitkeep
+
+# Root-level store (if created)
+store/
+!store/.gitkeep
+
+# Node / Vite (frontend)
+node_modules/
+frontend/node_modules/
+frontend/.env
+frontend/.env.*
+frontend/.vite/
+frontend/dist/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ngrok (만약 파일을 프로젝트에 두는 경우만)
+ngrok.yml

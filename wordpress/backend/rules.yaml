@@ -1,0 +1,42 @@
+- id: SQLI-001
+  severity: high
+  title: "$wpdb->query() without prepare()"
+  regex: "\\$wpdb->query\\s*\\((?P<arg>[^)]+)\\)"
+  description: "Raw SQL 실행 흔적. 사용자 입력 흐름이 섞이면 SQLi 가능성."
+  recommendation: "반드시 $wpdb->prepare() 사용 및 입력 검증."
+- id: RCE-001
+  severity: critical
+  title: "Dynamic code execution"
+  regex: "\\b(eval|assert)\\s*\\("
+  description: "동적 코드 평가. 입력에 의해 제어될 경우 RCE."
+  recommendation: "eval 제거 또는 화이트리스트 기반 파싱 사용."
+- id: RCE-002
+  severity: critical
+  title: "Dangerous command execution"
+  regex: "\\b(shell_exec|exec|system|passthru|popen|proc_open)\\s*\\("
+  description: "OS 명령 실행 흔적."
+  recommendation: "직접 호출 지양, 불가피하면 하드코드 + 엄격 이스케이프."
+- id: INCLUDE-001
+  severity: high
+  title: "Variable include/require"
+  regex: "\\b(include|require|include_once|require_once)\\s*\\(\\s*\\$[^)]+\\)"
+  description: "가변 경로 include. 입력 유입 시 LFI/RFI 위험."
+  recommendation: "허용 목록 기반 고정 경로만."
+- id: UPLOAD-001
+  severity: medium
+  title: "move_uploaded_file() usage"
+  regex: "\\bmove_uploaded_file\\s*\\("
+  description: "파일 업로드 처리. 확장자/타입/권한/nonce 검증 확인 필요."
+  recommendation: "wp_handle_upload()/wp_check_filetype() 등 활용."
+- id: SER-001
+  severity: high
+  title: "unserialize() on request"
+  regex: "unserialize\\s*\\(\\s*\\$_(GET|POST|REQUEST|COOKIE)"
+  description: "직렬화 해제에 사용자 입력 사용 시 객체 주입 위험."
+  recommendation: "JSON으로 대체, 엄격 스키마 검증."
+- id: NONCE-001
+  severity: medium
+  title: "admin_post handler without nonce check (heuristic)"
+  regex: "add_action\\s*\\(\\s*['\\\"]admin_post_[^'\\\"]+['\\\"]"
+  description: "관리자 POST 핸들러. 파일 내 nonce 검증 누락 여부 확인 필요."
+  recommendation: "check_admin_referer()/wp_verify_nonce() 호출 포함."
